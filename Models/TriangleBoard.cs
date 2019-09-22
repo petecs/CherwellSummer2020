@@ -59,8 +59,22 @@ namespace TriangleBoardApi.Models
                 return kv.Key;
                 }
             }
-            
+
             return null;
+        }
+
+        override public string ToString()
+        {
+            string str = "";
+
+            foreach (KeyValuePair<string, Triangle> kv in Triangles)
+            {
+            str += $"\n{kv.Key}\n({kv.Value.Vertex1[0]}, {kv.Value.Vertex1[1]})\n"
+            + $"({kv.Value.Vertex2[0]}, {kv.Value.Vertex2[1]})\n"
+            + $"({kv.Value.Vertex3[0]}, {kv.Value.Vertex3[1]})\n\n";
+            }
+
+            return str;
         }
     }
 }
