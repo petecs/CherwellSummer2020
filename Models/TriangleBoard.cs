@@ -52,7 +52,15 @@ namespace TriangleBoardApi.Models
 
         public string CalculateTrianglePosition(int[] v1, int[] v2, int[] v3)
         {
-            return "";
+            foreach (KeyValuePair<string, Triangle> kv in Triangles)
+            {
+                if (kv.Value.FitCoordinates(v1, v2, v3))
+                {
+                return kv.Key;
+                }
+            }
+            
+            return null;
         }
     }
 }
