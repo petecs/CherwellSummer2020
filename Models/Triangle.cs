@@ -1,4 +1,4 @@
-namespace Triangle.Models
+namespace TriangleApi.Models
 {
     public class Triangle
     {
@@ -11,6 +11,26 @@ namespace Triangle.Models
             Vertex1 = v1;
             Vertex2 = v2;
             Vertex3 = v3;
+        }
+
+        public bool FitCoordinates(int[] v1, int[] v2, int[] v3)
+        {
+            if (Vertex1[0] != v1[0] || Vertex1[1] != v1[1])
+            {
+                return false;
+            }
+
+            if (Vertex2[0] != v2[0] || Vertex2[1] != v2[1])
+            {
+                return false;
+            }
+
+            if (Vertex3[0] != v3[0] || Vertex3[1] != v3[1])
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override string ToString()
