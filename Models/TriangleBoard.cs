@@ -5,19 +5,44 @@ namespace TriangleBoardApi.Models
 {
     public class TriangleBoard
     {
-        private Dictionary<string, Triangle> triangles = new Dictionary<string, Triangle>();
+        public Dictionary<string, Triangle> Triangles {get;}
 
         public TriangleBoard()
         {
+            Triangles = new Dictionary<string, Triangle>();
+            char[] row = new char[] {'F', 'E', 'D', 'C', 'B', 'A'};
+            int[] column = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
+
+            int x = 0;
+            int y = 0;
+
+            for (int ix = 0; ix < row.Length; ix++)
+            {
+                for (int yx = 0; yx < column.Length; yx++)
+                {
+                    if (column[yx] % 2 != 0)
+                    {
+                        Triangles["" + row[ix] + column[yx]] = new Triangle(new int[] {x,y}, new int[] {x, y + 10}, new int[] {x + 10, y});
+                        continue;
+                    }
+                    else
+                    {
+                        Triangles["" + row[ix] + column[yx]] = new Triangle(new int[] {x + 10,y + 10}, new int[] {x + 10, y}, new int[] {x, y + 10});
+                        x += 10;
+                    }
+                }
+                x = 0;
+                y += 10;
+            }
         }
 
         public Triangle CalculateTriangleCoordinates(char row, int column)
         {
             string key = "" + row + column;
             
-            if (triangles.ContainsKey(key))
+            if (Triangles.ContainsKey(key))
             {
-                return triangles[key];
+                return Triangles[key];
             }
             else
             {
