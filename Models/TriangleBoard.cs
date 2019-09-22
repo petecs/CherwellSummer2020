@@ -16,18 +16,17 @@ namespace TriangleBoardApi.Models
             int x = 0;
             int y = 0;
 
-            for (int ix = 0; ix < row.Length; ix++)
+            foreach (char ch in row)
             {
-                for (int yx = 0; yx < column.Length; yx++)
+                foreach (int yx in column)
                 {
-                    if (column[yx] % 2 != 0)
+                    if (yx % 2 != 0)
                     {
-                        Triangles["" + row[ix] + column[yx]] = new Triangle(new int[] {x,y}, new int[] {x, y + 10}, new int[] {x + 10, y});
-                        continue;
+                        Triangles["" + ch + yx] = new Triangle(new int[] {x,y}, new int[] {x, y + 10}, new int[] {x + 10, y});
                     }
                     else
                     {
-                        Triangles["" + row[ix] + column[yx]] = new Triangle(new int[] {x + 10,y + 10}, new int[] {x + 10, y}, new int[] {x, y + 10});
+                        Triangles["" + ch + yx] = new Triangle(new int[] {x + 10,y + 10}, new int[] {x + 10, y}, new int[] {x, y + 10});
                         x += 10;
                     }
                 }
