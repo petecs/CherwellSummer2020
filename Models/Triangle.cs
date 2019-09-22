@@ -2,9 +2,9 @@ namespace TriangleApi.Models
 {
     public class Triangle
     {
-        private int[] Vertex1 {get;}
-        private int[] Vertex2 {get;}
-        private int[] Vertex3 {get;}
+        public int[] Vertex1 {get;}
+        public int[] Vertex2 {get;}
+        public int[] Vertex3 {get;}
 
         public Triangle(int[] v1, int[] v2, int[] v3)
         {
