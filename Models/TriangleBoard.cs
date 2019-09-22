@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using TriangleApi.Models;
+using TriangleBoardApi.Interfaces;
 
 namespace TriangleBoardApi.Models
 {
-    public class TriangleBoard
+    public class TriangleBoard : ITriangleBoard
     {
         public Dictionary<string, Triangle> Triangles {get;}
 
