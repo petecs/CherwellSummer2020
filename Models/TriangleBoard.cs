@@ -14,7 +14,15 @@ namespace TriangleBoardApi.Models
         public Triangle CalculateTriangleCoordinates(char row, int column)
         {
             string key = "" + row + column;
-            return new Triangle(new int[3], new int[3], new int[3]);
+            
+            if (triangles.ContainsKey(key))
+            {
+                return triangles[key];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public string CalculateTrianglePosition(int[] v1, int[] v2, int[] v3)
