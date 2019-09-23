@@ -66,7 +66,7 @@ namespace TriangleBoardApi.Controllers
                 }
                 else
                 {
-                return Ok(new { position = position });   
+                    return Ok(new { position = position });   
                 }
             }
         }
