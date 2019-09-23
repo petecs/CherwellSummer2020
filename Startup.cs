@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using TriangleBoardApi.Interfaces;
+using TriangleBoardApi.Models;
 
 namespace CherwellSummer2020
 {
@@ -26,6 +28,9 @@ namespace CherwellSummer2020
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // create a singleton instance
+            services.AddSingleton<ITriangleBoard, TriangleBoard>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
