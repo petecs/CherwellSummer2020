@@ -58,7 +58,7 @@ Creating this class was pretty simple, I just copied the declarations for the fi
 
 After creating the models and the interface, I needed to actually add a service to the program in order to create the endpoint. The main documentation on Microsoft's website about endpoints shows an example using a database. I thought using a database for this challenge would be overkill and make things much harder than they needed to be.
 
-I knew that I just wanted to create a single TriangleBoard object that would manage everything required of the program. After doing a lot of reading on the MS site I finally found the link to the documentation on dependency injection which showed me how to setup a Singleton service that would allow my TriangleBoard model to substitutes for a database context.
+I knew that I just wanted to create a single TriangleBoard object that would manage everything required of the program. After doing a lot of reading on the MS site I finally found the link to the documentation on dependency injection which showed me how to setup a Singleton service that would allow my TriangleBoard model to substitute for a database context.
 
 I added one line of code to Startup.cs to allow me to create a Controller class with a single TriangleBoard object as a field.
 
@@ -72,7 +72,7 @@ Once again I needed to thoroughly read the documentation to understand how to de
 
 After managing to get the endpoints working and returning the correct data I moved on to preventing errors and returning consistent data. Before I got to this point, each of the routes would return a different data type as a response. One would return a string, another would return a Triangle object. I prefer returning a JSON object that can be easily parsed to determine what data was received and how to use it.
 
-Reading the documentation I learned about ActionResult and IActionResult which is a generic and thus allows the return to be any type. I then used the methods Ok and NotFound from the ControllerBase class to create and return JSON objects as well as proper HTTP response status codes. Ok is very easy to use because I just pass it an anonymous object of the data I want to return and Ok makes it into a JSON object.
+Reading the documentation I learned about ActionResult and IActionResult which allow me to return any type. I then used the methods Ok and NotFound from the ControllerBase class to create and return JSON objects as well as proper HTTP response status codes. Ok is very easy to use because I just pass it an anonymous object of the data I want to return and Ok makes it into a JSON object.
 
 The last thing I did for the TriangleBoardController was to implement data validation and prevent any errors that would crash the program.
 
