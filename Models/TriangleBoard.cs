@@ -10,8 +10,15 @@ namespace TriangleBoardApi.Models
 
         public TriangleBoard()
         {
+            // triangle grid assumptions
+            // (0,0) at starting point A1, (60,60) at end point F12
+            // no negative numbers for coordinates
+            // (0,0) == upper-left point boundary of grid
+            // (60, 0) == upper-right point boundary of grid
+            // (0, 60) == lower-left point boundary of grid
+            // (60, 60) == lower-right point boundary of grid
             Triangles = new Dictionary<string, Triangle>();
-            char[] row = new char[] {'F', 'E', 'D', 'C', 'B', 'A'};
+            char[] row = new char[] {'A', 'B', 'C', 'D', 'E', 'F'};
             int[] column = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
 
             int x = 0;
@@ -23,11 +30,11 @@ namespace TriangleBoardApi.Models
                 {
                     if (yx % 2 != 0)
                     {
-                        Triangles["" + ch + yx] = new Triangle(new int[] {x,y}, new int[] {x, y + 10}, new int[] {x + 10, y});
+                        Triangles["" + ch + yx] = new Triangle(new int[] {x,y + 10}, new int[] {x, y}, new int[] {x + 10, y + 10});
                     }
                     else
                     {
-                        Triangles["" + ch + yx] = new Triangle(new int[] {x + 10,y + 10}, new int[] {x + 10, y}, new int[] {x, y + 10});
+                        Triangles["" + ch + yx] = new Triangle(new int[] {x + 10,y}, new int[] {x + 10, y + 10}, new int[] {x, y});
                         x += 10;
                     }
                 }
@@ -36,7 +43,7 @@ namespace TriangleBoardApi.Models
             }
         }
 
-        public Triangle CalculateTriangleCoordinates(char row, int column)
+        public Triangle CalculateCoordinates(char row, int column)
         {
             string key = "" + row + column;
             
@@ -50,7 +57,7 @@ namespace TriangleBoardApi.Models
             }
         }
 
-        public string CalculateTrianglePosition(int[] v1, int[] v2, int[] v3)
+        public string CalculatePosition(int[] v1, int[] v2, int[] v3)
         {
             foreach (KeyValuePair<string, Triangle> kv in Triangles)
             {
