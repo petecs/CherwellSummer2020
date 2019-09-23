@@ -43,9 +43,9 @@ namespace TriangleBoardApi.Models
             }
         }
 
-        public Triangle CalculateCoordinates(char row, int column)
+        public Triangle CalculateCoordinates(string key)
         {
-            string key = "" + row + column;
+            key = key.ToUpper();
             
             if (Triangles.ContainsKey(key))
             {
@@ -53,7 +53,8 @@ namespace TriangleBoardApi.Models
             }
             else
             {
-                return null;
+                Triangle errorTriangle = new Triangle(new int[] {-1,-1}, new int[] {-1,-1}, new int[] {-1,-1});
+                return errorTriangle;
             }
         }
 
