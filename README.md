@@ -21,15 +21,25 @@ The following functionality is complete:
 ## Example URLs
 
 https://localhost:5001/api/tri
+
 https://localhost:5001/api/tri/a5
+
 https://localhost:5001/api/tri/F3
+
 https://localhost:5001/api/tri/a13
+
 https://localhost:5001/api/tri/g5
+
 https://localhost:5001/api/tri/F3
+
 https://localhost:5001/api/tri/0-10-0-0-10-10
+
 https://localhost:5001/api/tri/20-30-20-20-30-30
+
 https://localhost:5001/api/tri/30-40-30-50-20-40
+
 https://localhost:5001/api/tri/61-61-61-61-61-61
+
 https://localhost:5001/api/tri/a-1-2-c-3-d
 
 ## Technical Discussion
