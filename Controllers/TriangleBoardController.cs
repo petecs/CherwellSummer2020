@@ -55,12 +55,10 @@ namespace TriangleBoardApi.Controllers
 
             if (didFail)
             {
-                //return errorMessage;
                 return NotFound(new {error = errorMessage});
             }
             else
             {
-                // return _triangleBoard.CalculatePosition(new int[] {v1x, v1y}, new int[] {v2x, v2y}, new int[] {v3x, v3y});
                 string position = _triangleBoard.CalculatePosition(new int[] {v1x, v1y}, new int[] {v2x, v2y}, new int[] {v3x, v3y});
                 if (position == null)
                 {
@@ -70,7 +68,6 @@ namespace TriangleBoardApi.Controllers
                 {
                 return Ok(new { position = position });   
                 }
-
             }
         }
     }
