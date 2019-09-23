@@ -8,9 +8,9 @@ namespace TriangleBoardApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TriangleBoardController : ControllerBase
+    public class TriController : ControllerBase
     {
-        public TriangleBoardController(ITriangleBoard triboard)
+        public TriController(ITriangleBoard triboard)
         {
             Triboard = triboard;
         }
