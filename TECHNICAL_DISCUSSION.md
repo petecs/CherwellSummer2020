@@ -7,7 +7,9 @@ Peter Akala
 ## Software
 
 Operating System: Linux Mint 19.2 Cinnamon
+
 Framework: .NET Core 2.2
+
 Code Editor: Visual Studio Code v1.38.1
 
 ## Overview
