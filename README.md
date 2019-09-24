@@ -44,7 +44,7 @@ https://localhost:5001/api/tri/a-1-2-c-3-d
 
 ## Technical Discussion
 
-See the [TECHNICAL DISCUSSION](TECHNICAL_DISCUSSION.md) for more details on the design and implementation of this
+See the [TECHNICAL DISCUSSION](TECHNICAL_DISCUSSION.md) for more details on the design and implementation of this project.
 
 ## Credits
 
